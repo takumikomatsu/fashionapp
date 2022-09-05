@@ -1,0 +1,20 @@
+<%= render "shared/header"%>
+<div class='main'>
+  <%= image_tag 'main-image.png', class:"main-image" %>
+  <div class='title-contents'>
+    <h2 class='service-title'>
+      あなたを着飾る一着を
+    </h2>  
+  </div>
+  <div class="request-view">
+   <% @requests.each do |request| %>
+   <div class="request-info">
+    <div class="sex">
+      <%= request.sex.name %>
+    </div>
+    <div class="request-text">
+      <%= request.text %>
+    </div>
+   <% end %>
+  </div>  
+</div>

@@ -1,0 +1,25 @@
+<%= render "shared/header"%>
+<div class="requests-main">
+  <%=image_tag 'main-image.png', class:'new-image'%>
+
+  <div class="requests">
+    <h2 class="requests-form-title">リクエスト情報を入力</h2>
+    <div class="form"> 
+      <%= form_with model: @request, class:"requests-form",local:true do |f| %>
+        <%= render "shared/error_messages", model: f.object, resource: @request %>
+        <div class="weight-bold-text">性別</div>
+        <div class="field">
+          <%= f.collection_select(:sex_id, Sex.all, :id, :name, {}, {class:"select-box", id:"sex"} )%>
+        </div>
+        <div class="weight-bold-text">本文</div>
+        <div class="field">
+          <%= f.text_area :text, class:"text-form", id:"requests-text" %>
+        </div>
+        <div class="action">
+          <div class="post-btn">
+          <%= f.submit "送信する", class:"post-btn"%>
+        </div>
+      <% end %>
+    </div>  
+  </div>
+</div>
