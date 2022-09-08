@@ -1,6 +1,7 @@
 class RequestsController < ApplicationController
   def index
     @requests = Request.all
+    @answers = Answer.all
   end
 
   def new

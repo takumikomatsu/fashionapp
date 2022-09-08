@@ -6,15 +6,46 @@
       あなたを着飾る一着を
     </h2>  
   </div>
-  <div class="request-view">
-   <% @requests.each do |request| %>
-   <div class="request-info">
-    <div class="sex">
-      <%= request.sex.name %>
-    </div>
-    <div class="request-text">
-      <%= request.text %>
-    </div>
-   <% end %>
-  </div>  
+  <div class="answered-request" id="answerModal">
+    <div class="close-btn" id="closeModal2">✖︎</div>
+    <% @answers.each do |answer|%>
+     <div class="answer-request-content">
+      <div class="answer-request-nickname">
+        <%= answer.request.user.nickname%>
+      </div>
+      <div class="answer-request-text">
+        <%= answer.request.text %>
+      </div>  
+     </div>
+     <div class="answer-content">
+      <%= image_tag answer.image.variant(resize: '200x200') ,class:"answer-img"%>
+      <div class="answer-text">
+        回答:
+        <%= answer.text %>
+      </div>
+    </div>  
+    <% end %>   
+  </div>
+  <div class="request-btn" id="openModal">リクエストを表示</div>
+  <div class="answered-request-btn" id="openModal2">回答済みの質問を表示</div>
+  <div class="request-view" id="request-modal">
+    <div class="close-btn" id="closeModal">✖︎</div>
+    <% @requests.each do |request| %>
+    <div class="request-info">
+      <div class="request-user">
+        ユーザー名: 
+        <%= request.user.nickname %>
+      </div>  
+      <div class="sex">
+        性別：
+        <%= request.sex.name %>
+      </div>
+      <div class="request-text">
+        質問内容:
+        <%= request.text %>
+      </div>
+      <%= link_to 'Answer', new_request_answer_path(request.id), class:"answer-btn" %>
+    <% end %>
+  </div>
+
 </div>

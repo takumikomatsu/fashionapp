@@ -1,5 +1,6 @@
 .main {
   width: 100vw;
+  height: 100vh;
 }
 
 .main-image {
@@ -14,12 +15,100 @@
   font-size: 100px;
 }
 
+.request-btn {
+  position: absolute;
+  top: 650px;
+  left: 200px;
+  border-radius: 20px;
+  width: 200px;
+  height: 100px;
+  text-align: center;
+  padding-top: 60px;
+  font-weight: bold;
+  font-family: fantasy;
+  background-color: chartreuse;
+}
+
+.answered-request-btn {
+  position: absolute;
+  top: 650px;
+  left: 50vw;
+  border-radius: 20px;
+  width: 200px;
+  height: 100px;
+  text-align: center;
+  padding-top: 60px;
+  font-weight: bold;
+  font-family: fantasy;
+  background-color: chartreuse;
+}
+
 .request-view {
   position: absolute;
-  top: 700px;
-  left: 500px;
+  top: 100vh;
+  left: 8vw;
   width: 20%;
-  height: 20%;
+  height: 50%;
   border-radius: 5px;
   background-color: azure;
+  opacity: 70%;
+  display: none;
+}
+
+.answered-request {
+  position: absolute;
+  top: 100vh;
+  left: 50vw;
+  width: 40%;
+  height: 40%;
+  border-radius: 5px;
+  background-color: azure;
+  opacity: 70%;
+}
+
+.answer-request-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.answer-content{
+  margin-left: 500px;
+}
+
+.close-btn {
+  position: absolute;
+  right: 0px;
+  font-size: larger;
+  padding: 15px;
+  color: azure;
+  background-color: red;
+}
+
+.request-user {
+  color: black;
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
+.sex {
+  color: black;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.request-text {
+  color: black;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.answer-btn {
+  text-decoration: none;
+  color: black;
+  width: 50px;
+  padding: 10px;
+  margin-left: 300px;
+  border-radius: 5px;
+  background-color: red;
 }

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'requests#index'
-  resources :requests, only: %i[index new create]
+  resources :requests do
+    resources :answers, only: %i[new create]
+  end
 end
