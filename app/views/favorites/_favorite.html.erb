@@ -1,0 +1,9 @@
+<% if answer.favorited?(current_user) %>
+  <%= link_to request_answer_favorites_path(request_id: answer.request_id, answer_id:answer.id), method: :delete, remote: :true do %>
+    <i class="fa fa-heart unfavorite-btn"> いいね</i>
+  <% end %>  
+<% else %>
+  <%= link_to request_answer_favorites_path(request_id: answer.request_id, answer_id:answer.id), method: :post, remote: :true do %>
+    <i class="fa fa-heart favorite-btn"> いいね</i>
+  <% end %>
+<% end %>        

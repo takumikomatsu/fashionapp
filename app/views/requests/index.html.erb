@@ -1,51 +1,73 @@
+<div class='start'>
+  <link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet">
+  <p>FashionApp</p>
+</div>  
+
 <%= render "shared/header"%>
 <div class='main'>
   <%= image_tag 'main-image.png', class:"main-image" %>
   <div class='title-contents'>
-    <h2 class='service-title'>
+    <h2 class='service-title' id='service-title'>
       あなたを着飾る一着を
     </h2>  
   </div>
   <div class="answered-request" id="answerModal">
+    <div class="answer-request-info">回答済み質問一覧</div>
     <div class="close-btn" id="closeModal2">✖︎</div>
-    <% @answers.each do |answer|%>
-     <div class="answer-request-content">
-      <div class="answer-request-nickname">
-        <%= answer.request.user.nickname%>
-      </div>
-      <div class="answer-request-text">
-        <%= answer.request.text %>
-      </div>  
-     </div>
-     <div class="answer-content">
-      <%= image_tag answer.image.variant(resize: '200x200') ,class:"answer-img"%>
-      <div class="answer-text">
-        回答:
-        <%= answer.text %>
-      </div>
-    </div>  
-    <% end %>   
+      <% @answers.each do |answer|%>
+        <div class="answer-request-content">
+          <div class="answer-request-nickname">
+            質問者名:
+            <%= answer.request.user.nickname%>
+          </div>
+          <div class="answer-request-text">
+            質問内容:<br>
+            <%= answer.request.text %>
+          </div>
+          <div class="answer-content">
+            <div class="answer-content-title">回答内容</div>
+            <%= image_tag answer.image.variant(resize: '200x200') ,class:"answer-img"%>
+            <div class="answer-text">
+              回答:
+              <%= answer.text %>
+            </div>
+            <div id="favorites_buttons_<%= answer.id %>">
+              <%= render  'favorites/favorite', answer: answer %>
+            </div>  
+          </div>  
+        </div>   
+      <% end %>  
   </div>
   <div class="request-btn" id="openModal">リクエストを表示</div>
   <div class="answered-request-btn" id="openModal2">回答済みの質問を表示</div>
   <div class="request-view" id="request-modal">
     <div class="close-btn" id="closeModal">✖︎</div>
     <% @requests.each do |request| %>
-    <div class="request-info">
-      <div class="request-user">
-        ユーザー名: 
-        <%= request.user.nickname %>
-      </div>  
-      <div class="sex">
-        性別：
-        <%= request.sex.name %>
-      </div>
-      <div class="request-text">
-        質問内容:
-        <%= request.text %>
-      </div>
-      <%= link_to 'Answer', new_request_answer_path(request.id), class:"answer-btn" %>
+      <div class="request-info">
+        <div class="request-user">
+          ユーザー名: 
+          <%= request.user.nickname %>
+        </div>  
+        <div class="sex">
+          性別：
+          <%= request.sex.name %>
+        </div>
+        <div class="height">
+          身長:
+          <%= request.user.height %>cm
+        <div class="request-text">
+          質問内容:
+          <%= request.text %>
+        </div>
+        <div class="btn-group">
+          <% if user_signed_in? && current_user.id == request.user_id %>
+            <%= link_to '編集', '#', class:"edit-btn" %>
+          <% end %>
+          <% if user_signed_in? && current_user.id != request.user_id %>
+            <%= link_to '回答する', new_request_answer_path(request.id), class:"answer-btn" %>
+          <% end %>
+        </div>
+      </div>   
     <% end %>
   </div>
-
 </div>

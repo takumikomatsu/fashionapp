@@ -12,6 +12,11 @@
       </div>
 
       <div class="field">
+        <%= f.label :height %><br />
+        <%= f.text_field :height, class:"input-field", autofocus: true, autocomplete: "height" %>
+      </div>
+
+      <div class="field">
         <%= f.label :email %><br />
         <%= f.email_field :email, class:"input-field", autofocus: true, autocomplete: "email" %>
       </div>
@@ -30,7 +35,7 @@
       </div>
 
       <div class="actions">
-        <%= f.submit "Sign up", class:"register-button" %>
+        <%= f.submit "Sign up", class:"submit-button" %>
       </div> 
     <% end %>
   </div>  
