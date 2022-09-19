@@ -21,9 +21,12 @@
         <%= f.password_field :password, class:"input-field" %>
       </div>
 
+       <%= link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post%>
+
       <div class="actions">
         <%= f.submit "Sign In", class:"submit-button" %>
-      </div> 
+      </div>
+
     <% end %>
   </div>  
 </div>

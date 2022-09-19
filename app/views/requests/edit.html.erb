@@ -1,0 +1,19 @@
+<%= render "shared/header"%>
+<%=image_tag 'main-image.png', class:'background-image'%>
+<link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet">
+<div class="edit-form-wrap">
+  <%= form_with model: @request, url: request_path, id: 'edit_request', class: 'edit_request', local: true  do |f| %>
+    
+    <div class="weight-bold-text">性別</div>
+     <div class="field">
+       <%= f.collection_select(:sex_id, Sex.all, :id, :name, {}, {class:"select-box", id:"sex"} )%>
+     </div>
+    <div class="field">
+      <%= f.label :text %><br />
+      <%= f.text_field :text, class:"input-field", autofocus: true, autocomplete: "nickname" %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Update", class:"submit-button"%>
+    </div>
+  <% end %>
+</div>  

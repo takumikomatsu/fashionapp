@@ -92,6 +92,13 @@ function modal(){
     })
   })
 
+  $('#login').on('click', function(){
+    $('#login').css({
+      color: ""
+    })
+  })
+
+
   $('#signup').on('mouseover', function(){
     $('#signup').css({
       color: "#4dc0b2"
@@ -102,9 +109,16 @@ function modal(){
       color: ""
     })
   })
+
+  $('#signup').on('click', function(){
+    $('#signup').css({
+      color: ""
+    })
+  })
+
+  
 }
 function modal2(){
-  console.log("test")
   setTimeout(function(){
     $('.start p').fadeIn(1600);
   },500);

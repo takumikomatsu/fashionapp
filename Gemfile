@@ -52,9 +52,13 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'active_hash'
+gem 'aws-sdk-s3', require: false
 gem 'devise'
 gem 'image_processing', '~> 1.2'
 gem 'jquery-turbolinks'
 gem 'mini_magick'
+gem 'omniauth', '1.9.1'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection'
 gem 'pry-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

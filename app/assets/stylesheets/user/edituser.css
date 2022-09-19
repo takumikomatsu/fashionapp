@@ -1,11 +1,11 @@
-.form-wrap {
+.edit-form-wrap {
   position: absolute;
-  top: 50px;
+  top: 350px;
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center; 
+  align-items: center;  */
 }
 
 .background-image {

@@ -31,9 +31,15 @@
               回答:
               <%= answer.text %>
             </div>
+            <% if user_signed_in? && current_user.id != answer.user_id %>
             <div id="favorites_buttons_<%= answer.id %>">
               <%= render  'favorites/favorite', answer: answer %>
-            </div>  
+            </div>
+            <% end %>
+            <% if user_signed_in? && current_user.id == answer.user_id %>
+              <%= link_to '編集', edit_request_answer_path(answer.request.id, answer.id), class:"edit-btn" %>
+              <%= link_to '削除', request_answer_path(answer.request.id, answer.id), class:"delete-btn", method: :delete %>
+            <% end %>  
           </div>  
         </div>   
       <% end %>  
@@ -61,7 +67,8 @@
         </div>
         <div class="btn-group">
           <% if user_signed_in? && current_user.id == request.user_id %>
-            <%= link_to '編集', '#', class:"edit-btn" %>
+            <%= link_to '編集',  edit_request_path(request.id), class:"edit-btn" %>
+            <%= link_to '削除', request_path(request.id), class:"delete-btn", method: :delete %>
           <% end %>
           <% if user_signed_in? && current_user.id != request.user_id %>
             <%= link_to '回答する', new_request_answer_path(request.id), class:"answer-btn" %>

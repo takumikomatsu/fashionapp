@@ -1,0 +1,19 @@
+<%= render "shared/header" %>
+<%=image_tag 'main-image.png', class:'background-image'%>
+<link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet">
+<div class="edit-form-wrap">
+  <%= form_with model: @answer, url: request_answers_path, id: 'edit_answer', class: 'edit_request', local: true  do |f| %>
+    <div class="weight-bold-text">画像</div>
+    <div class="field">
+      <%= f.file_field :image, id:"item-image"%>
+    </div>
+    <div class="weight-bold-text">本文</div>
+    <div class="field">
+      <%= f.label :text %><br />
+      <%= f.text_field :text, class:"input-field", autofocus: true, autocomplete: "text" %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Update", class:"submit-button"%>
+    </div>
+  <% end %>
+</div>  

@@ -13,6 +13,19 @@ class AnswersController < ApplicationController
     end
   end
 
+  def edit
+    @answer = Answer.find(params[:id])
+  end
+
+  def destroy
+    @answer = Answer.find(params[:id])
+    if @answer.destroy
+      redirect_to root_path
+    else
+      render :index
+    end
+  end
+
   private
 
   def answer_params
