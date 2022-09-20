@@ -1,4 +1,5 @@
 class RequestsController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
   before_action :set_request, only: %i[edit update destroy]
   def index
     @requests = Request.all
