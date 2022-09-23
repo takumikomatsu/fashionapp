@@ -1,24 +1,59 @@
-# README
+## users テーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+| Column             | Type   | Options                   |
+| ------------------ | ------ | ------------------------- |
+| nickname           | string | null: false               |
+| email              | string | null: false, unique: true |
+| encrypted_password | string | null: false               |
+| height             | string | null: false               |
 
-Things you may want to cover:
+has_many :requests
+has_many :answers
+has_many :favorites
+has_many :sns_credentials
 
-* Ruby version
+## requests テーブル
 
-* System dependencies
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| text   | string     | null: false                    |
+| sex_id | integer    | null: false                    |
+| user   | references | null: false, foreign_key: true |
 
-* Configuration
+belongs_to :user
+has_many :answers
+has_many :favorites
 
-* Database creation
+## answers テーブル
 
-* Database initialization
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| text    | string     | null: false                    |
+| user    | references | null: false, foreign_key: true |
+| request | references | null: false, foreign_key: true |
 
-* How to run the test suite
+belongs_to :user
+belongs_to :request
+has_many :favorites
 
-* Services (job queues, cache servers, search engines, etc.)
+## favorites
 
-* Deployment instructions
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| user    | references | null: false, foreign_key: true |
+| answer  | references | null: false, foreign_key: true |
+| request | references | null: false, foreign_key: true |
 
-* ...
+belongs_to :user
+belongs_to :request
+belongs_to :answer
+
+## sns_credentials
+
+| Column   | Type       | Options           |
+| -------- | ---------- | ----------------- |
+| provider | string     | ----------------- |
+| uid      | string     | ----------------- |
+| user     | references | foreign_key: true |
+
+belongs_to :user

@@ -8,6 +8,7 @@ class User < ApplicationRecord
   validates :password, presence: true
   has_many :requests, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :answers, dependent: :destroy
   has_many :sns_credentials
 
   def self.from_omniauth(auth)
