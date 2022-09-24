@@ -36,7 +36,7 @@ belongs_to :user
 belongs_to :request
 has_many :favorites
 
-## favorites
+## favorites 　テーブル
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
@@ -48,7 +48,7 @@ belongs_to :user
 belongs_to :request
 belongs_to :answer
 
-## sns_credentials
+## sns_credentials テーブル
 
 | Column   | Type       | Options           |
 | -------- | ---------- | ----------------- |
