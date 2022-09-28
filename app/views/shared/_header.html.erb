@@ -8,7 +8,7 @@
       <% if user_signed_in? %>
       <li><%= link_to 'リクエスト投稿', new_request_path, class:"request-post", id:"request-post"%>
       <li><%= link_to current_user.nickname, edit_user_registration_path, class: "user-nickname", id:"user-nickname" %>
-      <li><%= link_to 'ログアウト',destroy_user_session_path, method: :delete, class: "logout", id:"logout" %></li>
+      <li><%= link_to 'ログアウト',destroy_user_session_path, method: :delete, data: {confirm: "ログアウトしますか？"},  class: "logout", id:"logout" %></li>
       <% else %>
       <li><%= link_to 'ログイン', new_user_session_path, class: "login", id:"login" %></li>
       <li><%= link_to '新規登録',new_user_registration_path, class: "sign-up", id:"signup" %></li>
