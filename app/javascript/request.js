@@ -1,5 +1,4 @@
 function modal(){
-  console.log("test")
   setTimeout(function(){
     $('.start p').fadeIn(1600);
   },500);
