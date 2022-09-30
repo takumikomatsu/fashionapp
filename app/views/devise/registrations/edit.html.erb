@@ -21,25 +21,6 @@
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
 
-    <div class="field">
-      <%= f.label :password %> 
-      <% if @minimum_password_length %>
-        <br />
-        <em>(<%= @minimum_password_length %>文字以上)</em>
-      <% end %><br />
-      <%= f.password_field :password, class:"input-field", autocomplete: "new-password" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, class:"input-field", autocomplete: "new-password" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :current_password %><br /> 
-      <%= f.password_field :current_password, class:"input-field", autocomplete: "current-password" %>
-    </div>
-
     <div class="actions">
       <%= f.submit "Update", class:"submit-button"%>
     </div>
