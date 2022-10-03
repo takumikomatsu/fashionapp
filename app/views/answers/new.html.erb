@@ -1,6 +1,6 @@
 <%= render "shared/header"%>
+<%=image_tag 'main-image.png', class:'background-image'%>
 <div class="answers-main">
-  <%=image_tag 'main-image.png', class:'answer-image'%>
   <div class="request-content">
     <div class="request-nickname">
       質問者:
@@ -13,10 +13,11 @@
   <div class="answers">
     <h2 class="requests-form-title">回答を入力</h2>
     <div class="form"> 
-      <%= form_with model: [@request, @answer], class:"answers-form", local:true do |f| %>
+      <%= form_with model: [@request, @answer], class:"answers-form", id:"answers_form", local:true do |f| %>
         <%= render "shared/error_messages", model: f.object, resource: @answer %>
         <div class="weight-bold-text">画像</div>
-        <div class="field">
+        <div class="image-field">
+          <div id="previews"></div>
           <%= f.file_field :image, id:"item-image"%>
         </div>
         <div class="weight-bold-text">本文</div>
