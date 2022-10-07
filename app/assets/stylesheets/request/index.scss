@@ -33,15 +33,15 @@
 
 .service-title {
   position: absolute;
-  left: 130px;
-  top: 250px;
+  left: 100px;
+  top: 100px;
   font-size: 100px;
   display: none;
 }
 
 .request-btn {
   position: absolute;
-  top: 650px;
+  top: 400px;
   left: 200px;
   border-radius: 20px;
   width: 200px;
@@ -56,7 +56,7 @@
 
 .answered-request-btn {
   position: absolute;
-  top: 650px;
+  top: 400px;
   left: 50vw;
   border-radius: 20px;
   width: 200px;
@@ -71,7 +71,7 @@
 
 .request-view {
   position: absolute;
-  top: 100vh;
+  top: 570px;
   left: 8vw;
   width: 30%;
   height: 50%;
@@ -90,7 +90,7 @@
 
 .answered-request {
   position: absolute;
-  top: 100vh;
+  top: 570px;
   left: 40vw;
   width: 50%;
   height: 50%;
